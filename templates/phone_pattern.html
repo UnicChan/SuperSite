@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/phone.css" type="text/css" rel="stylesheet">
+
+    {% block links_scripts %}{% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="phone">
+        <header class="header">
+        </header>
+    {% block body %}{% endblock %}
+    <footer class="menu">
+        <div class="menu-inner">
+        </div>
+    </footer>
+</div>
+</body>
+</html>

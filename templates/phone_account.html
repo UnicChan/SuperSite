@@ -1,0 +1,68 @@
+{% extends 'phone_pattern.html' %}
+
+{% block links_scripts %}
+
+{% endblock %}
+
+{% block title%}
+Account
+{% endblock %}
+
+{% block body%}
+
+    <nav class="navigation">
+        <a href="/phone" class="navigation-item">Главная</a>
+        <a href="/ph_account" class="navigation-item active">Аккаунт</a>
+        <a href="/ph_posts" class="navigation-item">Посты</a>
+        <a href="/board" class="navigation-item">Лидеры</a>
+    </nav>
+    <section class="title">
+        <h1>Профиль {{ current_user.login }}</h1>
+    </section>
+
+    <section class="playlists">
+
+        <article class="card">
+            <div class="card-inner">
+                <span class="card-pin"></span>
+                <div class="card-content">
+                    <h1>Твой промокод: </h1>
+                    <p style="font-size:20px;">{% if current_user.promocode100 == "нет"%}{{ current_user.promocode50 }}{% elif
+                        current_user.promocode50 == "нет"%}{{ current_user.promocode100 }}{% endif %}</p>
+                    <a style="color:rgb(0, 219, 183);" class="btn" href="/game">Попытай удачу!</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card-inner">
+                <span class="card-pin"></span>
+                <div class="card-content">
+                    <h2 class="card-title">Всего получено промокодов: </h2>
+                    <p style="font-size:24px;">{{ current_user.promocode_all }}</p>
+                    <a style="color:rgb(112, 165, 42);" class="btn" href="/board">Найдёшь себя в таблице лидеров?</a>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section class="currently-playing">
+
+        <article class="card horizontal">
+            <div class="card-inner">
+                <span class="card-pin simple"></span>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-meta-artist">{% if current_user.id == 1 %}Ссылочки:{% else %} Выйти:{% endif %}</span>
+                    </div>
+                    <a style="color:brown;" class="btn" href="/logout">Выйти из аккаунта</a></br>
+                    {% if current_user.id == 1 %}
+                    <a style="color:green;" class="btn" href="/make_post">Написать пост</a></br>
+                    <a style="color:rgb(0, 194, 194)" class="btn" href="/admin">Админ панель</a>
+                    {% endif %}
+                </div>
+                <span class="card-pin simple"></span>
+            </div>
+        </article>
+    </section>
+
+{% endblock %}

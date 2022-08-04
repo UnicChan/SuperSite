@@ -1,0 +1,37 @@
+{% extends 'pattern.html' %}
+
+{% block links_scripts %}
+<link href="../static/css/account.css" type="text/css" rel="stylesheet">
+<link href="../static/css/glitch.css" type="text/css" rel="stylesheet">
+
+<!--скрипт Вконтакте-->
+<script src="https://vk.com/js/api/openapi.js?169" type="text/javascript"></script>
+<!--скрипт Вконтакте-->
+{% endblock %}
+
+{% block title%}
+    Account
+{% endblock %}
+
+{% block body%}
+
+<div class="container">
+    <div class="leftbox"></div>
+    <div class="rightbox">
+        <div class="hero">
+            <div class="header">
+                <h1 class="line anim-typewriter">профиль&nbsp;<span>{{ user.login }}</span></h1>
+            </div>
+            <h1>промокод: <div style="display:inline-block;" class="glitch"
+                    data-text="  ̶̡̠҇̾͛̅ ̸̡͉̟̃̃͡ ҈͔̩̀̍̌͜͡ ̴̢̰̪̅̀̕ ҉̨͈͑̀͞ ҈̘͈̎͜͡ ҉̡͍̍͒͡ ̵̪̠̔̌͜͡ ̸̨͔͒͠ ̷̣̉̇̀͢͡ ̵̧̞̩͔̆́̈͠ ̴̢̬̤̈́̏̃̕ ̸̢̜͋̆͝ ̵̨͙͍̈́̾̌̕ ҉̡̣͕̐̆͌͝ ̴̡͎̙̏̃̎͝ ̶̡̞̭͉̏̃͞ ̴̝͓̗̑͜͝ ҉͉̥̌̋͜͞ ҈̠͎҇́̌͐͢ͅ ̵̧̠̆̔͛̕ͅ ̵̡̛̘̈́̚ ̴̨̗̰̅͠ͅ">
+                     ̶̡̠҇̾͛̅ ̸̡͉̟̃̃͡ ҈͔̩̀̍̌͜͡ ̴̢̰̪̅̀̕ ҉̨͈͑̀͞ ҈̘͈̎͜͡ ҉̡͍̍͒͡ ̵̪̠̔̌͜͡ ̸̨͔͒͠ ̷̣̉̇̀͢͡ ̵̧̞̩͔̆́̈͠ ̴̢̬̤̈́̏̃̕ ̸̢̜͋̆͝ ̵̨͙͍̈́̾̌̕ ҉̡̣͕̐̆͌͝ ̴̡͎̙̏̃̎͝ ̶̡̞̭͉̏̃͞ ̴̝͓̗̑͜͝ ҉͉̥̌̋͜͞ ҈̠͎҇́̌͐͢ͅ ̵̧̠̆̔͛̕ͅ ̵̡̛̘̈́̚ ̴̨̗̰̅͠ͅ
+                </div></br></h1>
+            <h1 style="margin-bottom: 0px;">всего получено промокодов: {{ user.promocode_all }}</br></h1>
+            <a class="btn" href="/board">посмотреть таблицу лидеров</a>
+        </div>
+    </div>
+</div>
+
+
+</br></br>
+{% endblock %}

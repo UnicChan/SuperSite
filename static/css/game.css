@@ -1,0 +1,329 @@
+@font-face {
+  font-family: 'Acme';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/acme/v18/RrQfboBx-C5_XxrBbg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@keyframes changeOrder {
+  from { z-index: 9;}
+  to { z-index: 1; }
+}
+
+@keyframes handShake {
+  0%,100% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+}
+
+@keyframes handShake2 {
+  0%,100% { transform: rotateY(180deg) rotate(10deg); }
+  50% { transform: rotateY(180deg) rotate(-10deg); }
+}
+.game p {
+  text-align: center;
+}
+
+.game html, .game body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1;
+  font-family: Acme, Arial, sans-serif;
+}
+
+.game textarea{
+  position: absolute;
+  top: -101vw;
+}
+.game .content{
+  background-color: #e8e9dd;
+  box-shadow: 12px 12px 0px 0px #fffb00;
+  border: 1px solid black;
+}
+.game form {
+  position: absolute;
+  top: 110px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.game h1 {
+  text-align: center;
+}
+
+#hands {
+  text-align: center;
+}
+
+.game input:checked ~ div .hand-computer {
+  animation: none !important;
+}
+.game input:checked ~ div .hand-user {
+  animation: none !important;
+}
+
+.hand-computer, .hand-user {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform: rotate(10deg);
+  display: inline-block;
+  animation: handShake 2s infinite;
+}
+
+.hand-computer > div {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid black;
+  background-image: repeating-linear-gradient(45deg, gold -13px, gold 10px, rgba(0, 0, 0, 1) 10px, rgba(0, 0, 0, 1) 25px);
+  transition: all 0.1s;
+}
+.hand-user > div {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid black;
+  background: #e9bd98;  
+  transition: all 0.1s;
+}
+
+.fist {
+  height: 110px;
+  left: 40px;
+  top: 50px;
+  width: 90px;
+  border-radius: 20px 0 0 20px;
+}
+
+.finger {
+  width: 70px;
+  height: 30px;
+  border-radius: 20px;
+  left: 80px;
+  transform-origin: 0 50%;
+}
+
+.finger-1 { top: 50px; --dif: 0px; }
+.finger-2 { top: 78px; left: 84px; --dif: 4px; }
+.finger-3 { top: 106px; --dif: 0px; }
+.finger-4 { top: 134px; height: 26px; left: 76px; --dif: -8px; }
+
+.game div.thumb {
+  width: 35px;
+  height: 70px;
+  
+  border-radius: 0 20px 20px 20px;
+  top: 50px;
+  left: 80px;
+  border-left: 0 solid;
+  box-shadow: -17px 6px 0 -15px black;
+}
+
+.game div.arm {
+  width: 22px;
+  height: 70px;
+  left: 20px;
+  top: 70px;
+  border: 0;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#user-hand {
+  transform: rotateY(180deg);
+  animation: handShake2 2s infinite;
+  position: relative;
+}
+
+
+.game input[type="radio"] {
+  position: absolute;
+  top: -1000in;
+  left: -1000in;
+}
+
+.game input[id$="scissors"]:checked ~ div #user-hand .finger-1,
+.game input[id^="scissors"]:checked ~ div #computer-hand .finger-1 {
+  width: 130px;
+  transform:rotate(-5deg);
+  
+}
+
+.game input[id$="scissors"]:checked ~ div #user-hand .finger-2,
+.game input[id^="scissors"]:checked ~ div #computer-hand .finger-2 {
+  width: 130px;
+  transform:rotate(5deg);
+}
+
+.game input[id$="paper"]:checked ~ div #user-hand .finger-1,
+.game input[id$="paper"]:checked ~ div #user-hand .finger-2,
+.game input[id$="paper"]:checked ~ div #user-hand .finger-3,
+.game input[id$="paper"]:checked ~ div #user-hand .finger-4,
+.game input[id^="paper"]:checked ~ div #computer-hand .finger-1,
+.game input[id^="paper"]:checked ~ div #computer-hand .finger-2,
+.game input[id^="paper"]:checked ~ div #computer-hand .finger-3,
+.game input[id^="paper"]:checked ~ div #computer-hand .finger-4 {
+  left: 124px;
+  left: calc(124px + var(--dif));
+  width: 80px;
+  border-left: 0;
+  border-radius: 0 20px 20px 0;
+}
+
+#rock-rock:checked ~ div h2::before,
+#paper-paper:checked ~ div h2::before,
+#scissors-scissors:checked ~ div h2::before {
+  content: "Ничья ._.";
+  color: #19889c;
+  background-color: #e8e9dd;
+  box-shadow: 12px 12px 0px 0px #fffb00;
+  border: 1px solid black;
+  padding-inline-start: 8px;
+  padding-inline-end: 8px;
+}
+#rock-paper:checked ~ div h2::before,
+#paper-scissors:checked ~ div h2::before,
+#scissors-rock:checked ~ div h2::before {
+  content: "Ты победил $_$";
+  color: #499c19;
+  background-color: #e8e9dd;
+  box-shadow: 12px 12px 0px 0px #fffb00;
+  border: 1px solid black;
+  padding-inline-start: 8px;
+  padding-inline-end: 8px;
+}
+#rock-scissors:checked ~ div h2::before,
+#paper-rock:checked ~ div h2::before,
+#scissors-paper:checked ~ div h2::before {
+  content: "Ты проиграл ,_,";
+  color: #9c1919;
+  background-color: #e8e9dd;
+  box-shadow: 12px 12px 0px 0px #fffb00;
+  border: 1px solid black;
+  padding-inline-start: 8px;
+  padding-inline-end: 8px;
+}
+
+#message {
+  text-align: center;
+  display: none;
+  
+}
+
+.game input:checked ~ #message {
+  display: block;
+}
+
+#hands {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#icons {
+  padding-right: 35px;
+  width: 30px;
+  height: 200px;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+#icons > div {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.game label:active {
+  position:static; 
+  margin-left: 60px;
+}
+
+.game label:active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  z-index: 10;
+  height: 60px;
+}
+
+
+.game label {
+  animation: changeOrder 0.45s infinite linear;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+}
+
+.game label:nth-of-type(1) { animation-delay: -0.00s; }
+.game label:nth-of-type(2) { animation-delay: -0.15s; }
+.game label:nth-of-type(3) { animation-delay: -0.30s; }
+
+.custom-btn{
+  width: 145px;
+  height: 50px;
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  background: #e8e9dd;
+  cursor: pointer;
+  transition: all .5s ease;
+  position: relative;
+  box-shadow: 12px 12px 0px 0px #fffb00;
+}
+.btn-16 {
+  border: 1px solid black;
+  border-top: none;
+  color: black;
+}
+.btn-16:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: 1;
+  box-shadow:
+   -7px -7px 20px 0px #fffb00,
+   -4px -4px 5px 0px #fffb00,
+   7px 7px 20px 0px #fffb00,
+   4px 4px 5px 0px #fffb00;
+  transition: all 0.3s ease;
+}
+.btn-16:hover {
+  color: #fffb00;
+  background: black;
+}
+.btn-16:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+
+.smile {
+  color: rgb(0, 0, 0);
+  text-shadow: rgba(0, 0, 0, 0.445) 1px 1px 1px;
+}

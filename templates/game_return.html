@@ -1,0 +1,21 @@
+{% extends 'pattern.html' %}
+
+{% block links_scripts %}
+<link href="../static/css/account.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block title%}
+    Game
+{% endblock %}
+
+{% block body%}
+
+<div class="container">
+  <div class="leftbox"></div>
+  <div class="rightbox">
+      <h1>Попробуй ещё раз завтра!</h1>
+      <a  class="btn" href="/account">вернуться в аккаунт</a></br>
+      <a  class="btn" href="/ph_account">вернуться в аккаунт на телефоне</a>
+  </div>
+</div>
+{% endblock %}

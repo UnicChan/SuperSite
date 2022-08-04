@@ -1,0 +1,82 @@
+{% extends 'phone_pattern.html' %}
+
+{% block links_scripts %}
+<link href="../static/css/phone_fire.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block title%}
+Account
+{% endblock %}
+
+{% block body%}
+
+
+<nav class="navigation">
+    <a href="/phone" class="navigation-item">Главная</a>
+    <a href="/ph_account" class="navigation-item">Аккаунт</a>
+    <a href="/ph_posts" class="navigation-item active">Посты</a>
+    <a href="/board" class="navigation-item">Лидеры</a>
+</nav>
+<section class="title">
+    <h1>Посты</h1>
+</section>
+
+<section class="posts">
+    {% for element in articles %}
+    {% if element.number % 2 == 0 %}
+    <article class="card">
+        <div class="card-inner"><a href="/posts/{{ element.number }}">
+            <span class="card-pin"></span>
+            <div class="card-content">
+                <h2></h2>
+                <h2 class="card-title">{{ element.title }}</h2>
+                <p>{{ element.intro }}...</p>
+                <p class="tag">{{ element.tag }}</p>
+                <p class="date">{{ element.date.date() }}</p>
+            </div>
+            </a>
+        </div>
+    </article>
+
+    {% else %}
+    <article class="card">
+        <div class="card-inner"><a href="/posts/{{ element.number }}">
+            <span class="card-pin"></span>
+            <div class="card-content">
+                <h2></h2>
+                <h2 class="card-title">{{ element.title }}</h2>
+                <p>{{ element.intro }}...</p>
+                <div class="tag">{{ element.tag }}</div>
+                <p class="date">{{ element.date.date() }}</p>
+            </div>
+            </a>
+            <!--огонь-->
+            {% if time_checker(element) %}
+            <div class="new_post" style="left: 50%; top:-80%">
+                <div class="fire">
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                    <figure></figure>
+                </div>
+            </div>
+            {% endif %}
+            <!--конец огня-->
+        </div>
+    </article>
+    {% endif %}
+    {% endfor %}
+</section>
+
+{% endblock %}

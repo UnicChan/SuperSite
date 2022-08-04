@@ -1,0 +1,74 @@
+{% extends 'phone_pattern.html' %}
+
+{% block links_scripts %}
+
+{% endblock %}
+
+{% block title%}
+Home
+{% endblock %}
+
+{% block body%}
+
+    <nav class="navigation">
+        <a href="/phone" class="navigation-item active">Главная</a>
+        <a href="/ph_account" class="navigation-item">Аккаунт</a>
+        <a href="/ph_posts" class="navigation-item">Посты</a>
+        <a href="/board" class="navigation-item">Лидеры</a>
+    </nav>
+    <section class="title">
+        <h1>Главная страничка</h1>
+    </section>
+    <section class="playlists">
+
+        <article class="card">
+            <div class="card-inner"><a>
+                <span class="card-pin"></span>
+                <div class="card-image">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMDnvO90xZsed5ZzimhxAUvUtKTAd2BDIoJS34g7ATB-JoVLN8xh1PDvaVDJ6bg4aeninMRma1gp0tbn7Y-45VvZQS2zwWkAeKFQFMMDrK_QLpAAQQ7EFMIaNXwXo6-rbwJnprEaRfInWStSsbrM1ayybXAaCIJAZkqsD--Rqoa0VoI6fzdK4H5uAM/s320/AVEON_final_city_world_ending_8k_3d_56f55a49-b2d4-460f-b61b-e01399a3eae3.png" />
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Приветствуем на нашем сайте!</h2>
+                    <p>В нашем клубе ты всегда можешь расслабиться, поиграть в игрушки и поболтать с приятными людьми!</p>
+                </div>
+            </a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card-inner"><a>
+                <span class="card-pin"></span>
+                
+                <div class="card-image">
+                    <img src="https://img2.freepng.ru/20180402/vtq/kisspng-emoji-money-smiley-face-sticker-emoji-face-5ac2f3bbbdd0b6.5186839715227258197775.jpg" />
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Хочешь получить скидку?</h2>
+                    <p>Переходи в раздел "аккаунт" и получай свой промокод!</p>
+                </div>
+            </a>
+            </div>
+        </article>
+    </section>
+    <section class="currently-playing">
+
+        <article class="card horizontal">
+            <div class="card-inner">
+                <span class="card-pin simple"></span>
+                <div class="card-image">
+                    <img src="https://handcraftguide.com/sites/default/files/styles/original___water/public/sketchingforkids0handcraftguide.com_.png?itok=IdyCCI1j" />
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="card-meta-artist">Узнай о новых вкусняшках первым!</span>
+                    </div>
+                    <h2 class="card-title">В разделе "посты" ты узнаешь о новых завозах. Следи за постами с
+                        пузырьками - они самые свежие!
+                    </h2>
+                </div>
+                <span class="card-pin simple"></span>
+            </div>
+        </article>
+    </section>
+
+{% endblock %}

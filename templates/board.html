@@ -1,0 +1,92 @@
+{% extends 'pattern.html' %}
+
+{% block links_scripts %}
+<link href="../static/css/board.css" type="text/css" rel="stylesheet">
+<link href="../static/css/glitch.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block title%}
+    Board
+{% endblock %}
+
+{% block body%}
+
+    <div class="center">
+        <div class="top3">
+          <a class="two item" href="/account/{{ users[1].id }}">
+            <div style="color: silver" class="pos">2</div>
+            <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/44.jpg&#39;)">
+            </div>
+            <div class="name">{{users[1].login}}</div>
+            <div class="score">{{users[1].promocode_all}}</div>
+          </a>
+          <a class="one item" href="/account/{{ users[0].id }}">
+            <div class="pos">1</div>
+            <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/31.jpg&#39;)">
+            </div>
+            <div class="name">{{users[0].login}}</div>
+            <div class="score">{{users[0].promocode_all}}</div>
+          </a>
+          <a class="three item" href="/account/{{ users[2].id }}">
+            <div style="color:rgb(255, 145, 0);" class="pos">3</div>
+            <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/91.jpg&#39;)">
+            </div>
+            <div class="name">{{users[2].login}}</div>
+            <div class="score">{{users[2].promocode_all}}</div>
+          </a>
+        </div>
+        <div class="list">
+          <a class="item" href="/account/{{ users[3].id }}">
+            <div class="pos">4</div>
+            <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/88.jpg&#39;)">
+            </div>
+            <div class="name">{{users[3].login}}</div>
+            <div class="score">{{users[3].promocode_all}}</div>
+          </a>
+          <a class="item" href="/account/{{ users[4].id }}">
+            <div class="pos">5</div>
+            <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/29.jpg&#39;)">
+            </div>
+            <div class="name">{{users[4].login}}</div>
+            <div class="score">{{users[4].promocode_all}}</div>
+          </a>
+          <a class="item" href="/account/{{ users[5].id }}">
+            <div class="pos">6</div>
+            <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/85.jpg&#39;)">
+            </div>
+            <div class="name">{{users[5].login}}</div>
+            <div class="score">{{users[5].promocode_all}}</div>
+          </a>
+          <a class="item" href="/account/{{ users[6].id }}">
+            <div class="pos">7</div>
+            <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/39.jpg&#39;)">
+            </div>
+            <div class="name">{{users[6].login}}</div>
+            <div class="score">{{users[6].promocode_all}}</div>
+          </a>
+          <a class="item" href="/account/{{ users[7].id }}">
+            <div class="pos">8</div>
+            <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/77.jpg&#39;)">
+            </div>
+            <div class="name">{{users[7].login}}</div>
+            <div class="score"> {{users[7].promocode_all}}</div>
+          </a>
+          <a class="item" href="/account/{{ users[8].id }}">
+            <div class="pos">9</div>
+            <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/49.jpg&#39;)">
+            </div>
+            <div class="name">{{users[8].login}}</div>
+            <div class="score"> {{users[8].promocode_all}}</div>
+          </a>
+          <a class="item" href="/account/{{ users[9].id }}">
+            <div class="pos">10</div>
+            <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/30.jpg&#39;)">
+            </div>
+            <div class="name">{{users[9].login}}</div>
+            <div class="score"> {{users[9].promocode_all}}</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+{% endblock %}

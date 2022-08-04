@@ -1,0 +1,43 @@
+{% extends 'pattern.html' %}
+
+{% block links_scripts %}
+<link href="../static/css/account.css" type="text/css" rel="stylesheet">
+<link href="../static/css/glitch.css" type="text/css" rel="stylesheet">
+
+{% endblock %}
+
+{% block title%}
+    Account
+{% endblock %}
+
+{% block body%}
+
+<form method="POST">
+    <div class="container">
+        <div class="leftbox"></div>
+        <div class="rightbox">
+                <div class="hero">
+                    <div class="header">
+                          <h1 class="line anim-typewriter">профиль&nbsp;<span>{{ current_user.login }}</span></h1>
+                    </div>
+                <h1 style="margin-bottom: 0px;">промокод: {% if current_user.promocode100 == "нет"%}<div style="display:inline-block;" class="glitch" data-text="{{ current_user.promocode50 }}">{{ current_user.promocode50 }}</div>{% elif
+                current_user.promocode50 == "нет"%}<div style="display:inline-block;" class="glitch" data-text="{{ current_user.promocode100 }}">{{ current_user.promocode100 }}</div>{% endif %}</br></h1>
+                    <a class="btn" href="/game">Попытай удачу!</a>
+                <h1 style="margin-bottom: 0px;">всего получено промокодов: {{ current_user.promocode_all }}</h1></div>
+                    <a class="btn" href="/board">найдёшь себя в таблице лидеров?</a>
+                <h1 style="margin-bottom: 75px;"></h1>
+                    <a class="btn" href="/ph_account">мобильная версия</a>
+                <h1 style="margin-bottom: 60px;"></h1>
+                    <a class="btn" href="/logout">Выйти из аккаунта</a>
+                    {% if current_user.id == 1 %}
+                    <a style="color:green;" class="btn" href="/make_post">Написать пост</a>
+                    <a style="color:rgb(0, 194, 194)" class="btn" href="/admin">Админ панель</a>
+                    {% endif %}
+            </div>
+        </div>
+    </div>
+</form>
+
+</br></br>
+
+{% endblock %}

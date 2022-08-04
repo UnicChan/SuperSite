@@ -1,0 +1,47 @@
+{% extends 'pattern.html' %}
+
+{% block links_scripts %}
+<link href="../static/css/authorization.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% block title%}
+    Login
+{% endblock %}
+
+{% block body%}
+
+<form method="POST">
+  <div class="container">
+      <div class="leftbox"></div>
+      <div class="rightbox">
+          <div class="">
+              <h1>авторизация</h1>
+              <h2>логин:</h2>
+              <input type="text" name="login" placeholder="">
+              <h2>пароль:</h2>
+              <input type="password" name="password" placeholder=""></br></br></br>
+              <button class="custom-btn btn-16" type="submit" class="btn">Войти</button>
+              </br></br>
+              {% if current_user.is_authenticated == False%}
+              <h2>Ещё нет аккаунта? <a class="btn" href="/register">зарегистрироваться</a></h2>
+              {% endif %}
+              {% if current_user.is_authenticated %}
+                перейти в <a class="btn" href="/account">аккаунт</a>
+              {% endif %}
+              <!-- flash уведомления-->
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="flashes">
+                  {% for message in messages %}
+                  <h2>{{ message }}</h2>
+                  {% endfor %}
+                </div>
+                {% endif %}
+              {% endwith %}
+              <!-- конец flash уведомления-->
+          </div>
+      </div>
+  </div>
+</form>
+
+{% endblock %}
