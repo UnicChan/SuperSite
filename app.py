@@ -19,7 +19,7 @@ from sqlalchemy.orm.exc import NoResultFound
 
 import random
 
-subprocess.Popen(["python.exe", "D:/python projects/stealled site/app_copy.py"])
+subprocess.Popen([sys.executable, "app_copy.py"])
 
 
 app = Flask('stealled site')
@@ -417,4 +417,4 @@ def redirect_to_signin(response):
 #
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(debug=False, port=5002, host='0.0.0.0')
